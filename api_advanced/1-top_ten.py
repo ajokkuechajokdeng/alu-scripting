@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Returns the number of subscribers 
-"""
+"""Return hot 10 posts"""
 
 
 import json
@@ -8,16 +7,17 @@ import requests
 import sys
 
 
-def number_of_subscribers(subreddit):
-    """ Return  subscribers
-    """
+def top_ten(subreddit):
+    """return hot post"""
     if len(sys.argv) < 2:
-        return 0
+        return print(None)
     else:
-        url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+        url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
         headers = {"User-Agent": "Mozilla/5.0"}
         result = requests.get(url, headers=headers, allow_redirects=False)
+        listing = []
         if result.status_code != 200:
-            return 0
+            return print(None)
         body = json.loads(result.text)
-        return body["data"]["subscribers"]
+        for i in body["data"]["children"]:
+            print(i["data"]["title"])

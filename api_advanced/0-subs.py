@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Returns the number of subscribers 
-"""
+""" Returns the number of subscribers """
 
 
 import json
@@ -9,8 +8,7 @@ import sys
 
 
 def number_of_subscribers(subreddit):
-    """ Return  subscribers
-    """
+    """ Return  subscribers"""
     if len(sys.argv) < 2:
         return 0
     else:
