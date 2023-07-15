@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Return hot 10 posts"""
+"""Returns top 10 posts"""
 
 
 import json
